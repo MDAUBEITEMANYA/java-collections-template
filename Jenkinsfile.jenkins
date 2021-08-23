@@ -3,16 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-            withMaven(maven : 'apache-maven-3.6.3') {
              bat 'mvn --version'
                 bat 'mvn -B -DskipTests clean package'
                 }
-            }
-        }
-        stage('Test') {
-            steps {
-                bat 'make check'
-                junit 'reports/**/*.xml'
             }
         }
     }
